@@ -1,3 +1,5 @@
+import { Graphic } from "./Graphic";
+
 class CustomImage extends Graphic{
     
     public draw(){

@@ -1,4 +1,4 @@
-class Graphic {
+export class Graphic {
 
     public draw()
     {

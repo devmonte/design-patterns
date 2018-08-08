@@ -1,3 +1,5 @@
+import { Graphic } from "./Graphic";
+
 class TextDocument{
     private _graphic: Graphic;
 
