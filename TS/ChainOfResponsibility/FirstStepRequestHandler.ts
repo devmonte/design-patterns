@@ -1,0 +1,19 @@
+import {  IRequestHandler } from "./IRequestHandler";
+
+class FirstStepRequestHandler implements IRequestHandler
+{
+    nextHandler: IRequestHandler;    
+    
+    handle(requestType: string): void {
+        if(requestType == 'FirstRequest')
+        {
+            console.log('Handle first request!');
+        }
+        else if(this.nextHandler != null)
+        {
+            this.nextHandler.handle(requestType);
+        }
+    }
+
+
+}
