@@ -1,6 +1,6 @@
 import {  IRequestHandler } from "./IRequestHandler";
 
-class ThirdStepRequestHandler implements IRequestHandler
+export class ThirdStepRequestHandler implements IRequestHandler
 {
     nextHandler: IRequestHandler;    
     

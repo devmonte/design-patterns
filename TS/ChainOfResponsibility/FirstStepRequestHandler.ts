@@ -1,6 +1,6 @@
 import {  IRequestHandler } from "./IRequestHandler";
 
-class FirstStepRequestHandler implements IRequestHandler
+export class FirstStepRequestHandler implements IRequestHandler
 {
     nextHandler: IRequestHandler;    
     
