@@ -9,6 +9,10 @@ import { Vehicles } from "./Visitor/Vehicles";
 import { PriceVisitor } from "./Visitor/PriceVisitor";
 import { Investor } from "./Observer/Investor";
 import { Bitcoin } from "./Observer/Bitcoin";
+import { ToUpperCaseConverter } from "./Strategy/ToUpperCaseConverter";
+import { Context } from "./Strategy/Context";
+import { ToLowerCaseConverter } from "./Strategy/ToLowerCaseConverter";
+import { NumberToStringConverter } from "./Strategy/NumberToStringConverter";
 
 export class DesignPatternDemonstrator
 {
@@ -61,6 +65,22 @@ export class DesignPatternDemonstrator
         bitcoin.attach(bankInvestor);
         bitcoin.attach(privateInvestor);
         bitcoin.changePrice(7500);
+    }
+
+    demonstrateStrategy()
+    {
+        let numberConverter = new NumberToStringConverter();
+        let lowerCaseConverter = new ToLowerCaseConverter();
+        let upperCaseConverter = new ToUpperCaseConverter();
+
+        let context = new Context(numberConverter);
+        context.useConverter(456);
+
+        context = new Context(lowerCaseConverter);
+        context.useConverter("TEST");
+
+        context = new Context(upperCaseConverter);
+        context.useConverter("test"); 
     }
 
 }
