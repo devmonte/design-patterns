@@ -1,10 +1,10 @@
 import { IObserver } from "./IObserver";
-import { ISubject } from "./ISubject";
+import { ICryptoCurrency } from "./ICryptoCurrency";
 
 export class Investor implements IObserver
 {
-    Update(subject: ISubject): void
+    Update(currency: ICryptoCurrency): void
     {
-        console.log("Notified about price change.")
+        console.log("Notified about price change. New price: " + currency.price)
     }
 }

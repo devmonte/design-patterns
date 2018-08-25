@@ -1,6 +1,6 @@
-import { ISubject } from "./ISubject";
+import { ICryptoCurrency } from "./ICryptoCurrency";
 
 export interface IObserver
 {
-    Update(subject: ISubject): void;
+    Update(subject: ICryptoCurrency): void;
 }

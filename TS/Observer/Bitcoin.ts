@@ -1,7 +1,7 @@
-import { ISubject } from "./ISubject";
+import { ICryptoCurrency } from "./ICryptoCurrency";
 import { IObserver } from "./IObserver";
 
-export class Bitcoin implements ISubject
+export class Bitcoin implements ICryptoCurrency
 {
     public price: number;
     private _investors: IObserver[];
@@ -11,18 +11,24 @@ export class Bitcoin implements ISubject
         this.price = price;
     }
 
-    Notify(): void
+    notify(): void
     {
         this._investors.forEach(i => i.Update(this));
     }
 
-    Attach(investor: IObserver): void
+    attach(investor: IObserver): void
     {
         this._investors.push(investor);
     }
 
-    Detach(investor: IObserver): void
+    detach(investor: IObserver): void
     {
         //remove given investor from array
+    }
+
+    changePrice(newPrice: number)
+    {
+        this.price = newPrice;
+        this.notify;
     }
 }
