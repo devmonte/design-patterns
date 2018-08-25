@@ -7,6 +7,8 @@ import { Plane } from "./Visitor/Plane";
 import { Truck } from "./Visitor/Truck";
 import { Vehicles } from "./Visitor/Vehicles";
 import { PriceVisitor } from "./Visitor/PriceVisitor";
+import { Investor } from "./Observer/Investor";
+import { Bitcoin } from "./Observer/Bitcoin";
 
 export class DesignPatternDemonstrator
 {
@@ -49,4 +51,16 @@ export class DesignPatternDemonstrator
 
         vehicleCollection.accept(priceVisitor);
     }
+
+    demonstrateObserver()
+    {
+        let bankInvestor = new Investor();
+        let privateInvestor = new Investor();
+
+        let bitcoin = new Bitcoin(7200);
+        bitcoin.attach(bankInvestor);
+        bitcoin.attach(privateInvestor);
+        bitcoin.changePrice(7500);
+    }
+
 }
