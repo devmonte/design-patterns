@@ -6,6 +6,9 @@
         "./ChainOfResponsibility/*",
         "./Memento/*",
         "./Proxy/*",
-        "./Visitor/*"
+        "./Visitor/*",
+        "./Command/*",
+        "./Observer/*",
+        "./Strategy/*"
     ]
 }
