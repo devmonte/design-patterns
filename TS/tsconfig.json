@@ -1,8 +1,10 @@
 {
     "compilerOptions": {
-        
+        "outDir": "./js/",
+        "target": "es5"
     },
-    "files":[
+    "include":[
+        "design-patterns-demonstrator.ts",
         "./ChainOfResponsibility/*",
         "./Memento/*",
         "./Proxy/*",
