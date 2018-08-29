@@ -1,17 +1,16 @@
 import { ICommand } from "./ICommand";
-import { Camera } from "./Camera";
+import { ICamera } from "./icamera";
 
 export class AddFeatureToStreamCommand implements ICommand
 {
-    private _camera: Camera;
+    private _camera: ICamera;
 
-    constructor(camera: Camera)
+    constructor(camera: ICamera)
     {
         this._camera = camera;
     }
 
     execute(): void {
-        throw new Error("Method not implemented.");
+        this._camera.addFeature("New super feature!");
     }
-    
 }
