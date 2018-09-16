@@ -1,0 +1,5 @@
+//state
+export class EngineState
+{
+    
+}
