@@ -1,4 +1,4 @@
-import { ICommand } from "./ICommand";
+import { ICommand } from "./iCommand";
 import { ICamera } from "./icamera";
 
 export class AddFeatureToStreamCommand implements ICommand

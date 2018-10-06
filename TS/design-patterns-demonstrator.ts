@@ -13,6 +13,8 @@ import { ToUpperCaseConverter } from "./Strategy/ToUpperCaseConverter";
 import { Context } from "./Strategy/Context";
 import { ToLowerCaseConverter } from "./Strategy/ToLowerCaseConverter";
 import { NumberToStringConverter } from "./Strategy/NumberToStringConverter";
+import { ChatMediator } from "./Mediator/chatMediator";
+import { ChatUser } from "./Mediator/chatUser";
 
 export class DesignPatternDemonstrator
 {
@@ -81,6 +83,17 @@ export class DesignPatternDemonstrator
 
         context = new Context(upperCaseConverter);
         context.useConverter("test"); 
+    }
+
+    demonstrateMediator()
+    {
+        let mediator = new ChatMediator();
+        let userOne = new ChatUser(mediator, "UserOne");
+        let userTwo = new ChatUser(mediator, "UserTwo");
+        let userThree = new ChatUser(mediator, "UserThree");
+
+        userTwo.send("Hello guys!")
+
     }
 
 }
