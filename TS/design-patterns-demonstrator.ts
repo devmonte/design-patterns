@@ -15,6 +15,7 @@ import { ToLowerCaseConverter } from "./Strategy/ToLowerCaseConverter";
 import { NumberToStringConverter } from "./Strategy/NumberToStringConverter";
 import { ChatMediator } from "./Mediator/chatMediator";
 import { ChatUser } from "./Mediator/chatUser";
+import { Engine } from "./State/engine";
 
 export class DesignPatternDemonstrator
 {
@@ -94,6 +95,16 @@ export class DesignPatternDemonstrator
 
         userTwo.send("Hello guys!")
 
+    }
+
+    demonstrateState()
+    {
+        let engine = new Engine("1.9 TDI");
+        console.log(engine.state.stateName);
+        engine.changeSpeed(90); 
+        console.log(engine.state.stateName);
+        engine.changeSpeed(110);
+        console.log(engine.state.stateName);
     }
 
 }
