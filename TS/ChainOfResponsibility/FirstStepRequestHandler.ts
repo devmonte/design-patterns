@@ -14,6 +14,4 @@ export class FirstStepRequestHandler implements IRequestHandler
             this.nextHandler.handle(requestType);
         }
     }
-
-
 }
