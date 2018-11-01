@@ -1,13 +1,12 @@
-# design-patterns
-Repository containing examples and description of most popular design patterns.
-The purpose was to thoroughly learn about design patterns and TypeScript language.
+# Design Patterns
+This repository contains examples and descriptions of most popular design patterns.
+The purpose for creating it was to thoroughly learn about design patterns and TypeScript language.
 
 Based on GoF book we can devide design patterns to three groups:
-- creational
-- structural
-- behavioral
+- Creational - how to create an object,
+- Structural - how to realize relationships among objects,
+- Behavioral - how objects can communicate with other objects.
 
-Let's start with the last group!
 
 ### Behavioral
 #### Chain of resposibility
