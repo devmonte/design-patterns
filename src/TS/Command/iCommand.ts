@@ -1,4 +1,4 @@
 export interface ICommand
 {
-    execute(): void;
+    execute():void
 }
