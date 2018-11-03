@@ -57,7 +57,56 @@ Demonstration of use:
     }
 ```
 
-
-
 #### Command
 
+It's about encapsulating request as an object.
+
+
+
+##### Example
+Order a dish in restaurant. Waiter(invoker) takes order from us and then talk to(command) cook(receiver) about new dish. 
+
+Invoker
+````TypeScript
+export class Waiter{
+
+    constructor(private _cook: Cook){}
+
+    takeOrder(dishName: string): void
+    {
+        let order = new AsianCousineOrderCommand(this._cook, dishName);
+        order.execute()
+    }
+}
+````
+
+Base command
+````TypeScript
+export interface ICommand
+{
+    execute():void
+}
+````
+
+Command
+````TypeScript
+export class AsianCousineOrderCommand implements ICommand
+{
+    constructor(private _cook: Cook, private _dishName: string){}
+
+    execute(): void {
+        this._cook.cookDish(this._dishName);
+    }
+}
+````
+
+Receiver
+````TypeScript
+export class Cook
+{
+    cookDish(dishType: string): void
+    {
+        console.log("Cooked " + dishType);
+    }
+}
+````
