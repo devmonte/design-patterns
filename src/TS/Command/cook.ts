@@ -1,8 +1,8 @@
 //receiver
 export class Cook
 {
-    cookDish(dishType: string): string
+    cookDish(dishType: string): void
     {
-        return "Cooked " + dishType;
+        console.log("Cooked " + dishType);
     }
 }

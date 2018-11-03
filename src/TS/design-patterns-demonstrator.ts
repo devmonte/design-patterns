@@ -16,6 +16,8 @@ import { NumberToStringConverter } from "./Strategy/NumberToStringConverter";
 import { ChatMediator } from "./Mediator/chatMediator";
 import { ChatUser } from "./Mediator/chatUser";
 import { Engine } from "./State/engine";
+import { Cook } from "./Command/cook";
+import { Waiter } from "./Command/waiter";
 
 export class DesignPatternDemonstrator
 {
@@ -29,6 +31,13 @@ export class DesignPatternDemonstrator
         secondHandler.nextHandler = thirdhandler;
 
         firstHandler.handle("ThirdReuqest");
+    }
+
+    demonstrateCommand()
+    {
+        let receiver = new Cook();
+        let invoker = new Waiter(receiver);
+        invoker.takeOrder("Super tasty noodles!");
     }
 
     demonstrateMemento()

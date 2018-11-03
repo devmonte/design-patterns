@@ -1,11 +1,11 @@
 import { ICommand } from "./iCommand";
 import { Cook } from "./cook";
 
-export class OrderCommand implements ICommand
+export class AsianCousineOrderCommand implements ICommand
 {
-    constructor(private _cook: Cook){}
+    constructor(private _cook: Cook, private _dishName: string){}
 
     execute(): void {
-        this._cook.cookDish("testDish");
+        this._cook.cookDish(this._dishName);
     }
 }
