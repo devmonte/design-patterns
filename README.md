@@ -7,6 +7,10 @@ Based on GoF book we can devide design patterns to three groups:
 - Structural - how to realize relationships among objects,
 - Behavioral - how objects can communicate with other objects.
 
+Before my own description and impleemntation it is worth to mention resources on which I based while learning about the aptterns:
+- [dotnetcodr - Broad examples of design and architectural patterns](https://dotnetcodr.com/architecture-and-patterns/)
+- [Design Patterns for Humans - ver popular repo](https://github.com/kamranahmedse/design-patterns-for-humans)
+- [SourceMaking - another good website about patterns](https://sourcemaking.com/design_patterns)
 
 ### Behavioral
 #### Chain of resposibility
