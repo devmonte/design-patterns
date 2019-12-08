@@ -7,6 +7,10 @@ namespace DesignPatterns
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+            Demonstrator.ShowMediator();
+
+            Console.ReadKey();
         }
     }
 }
