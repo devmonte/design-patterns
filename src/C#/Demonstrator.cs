@@ -1,5 +1,6 @@
 ﻿using System;
 using DesignPatterns.Chain;
+using DesignPatterns.Command;
 using DesignPatterns.Decorator;
 using DesignPatterns.Mediator;
 using DesignPatterns.Observer;
@@ -70,5 +71,16 @@ namespace DesignPatterns
             var milkCoffee = new MilkCoffee(coffee);
             milkCoffee.SaveCoffee();
         }
+
+        public static void ShowCommand()
+        {
+            var tire = new Tire();
+            tire.Price = 1200;
+            var increasePriceCmd = new TireCommand(tire, PriceAction.Increase, 250);
+
+            var cmdHandler = new CommandHandler();
+            cmdHandler.Process(increasePriceCmd);
+        }
+
     }
 }

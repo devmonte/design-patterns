@@ -8,6 +8,7 @@ namespace DesignPatterns
         {
             Console.WriteLine("Hello World!");
 
+            Console.WriteLine("\n\n Mediator!");
             Demonstrator.ShowMediator();
 
             Console.WriteLine("\n\n Simple Observer!");
@@ -19,6 +20,9 @@ namespace DesignPatterns
 
             Console.WriteLine("\n\n Decorator!");
             Demonstrator.ShowDecorator();
+
+            Console.WriteLine("\n\n Command!");
+            Demonstrator.ShowCommand();
 
             Console.ReadKey();
         }
