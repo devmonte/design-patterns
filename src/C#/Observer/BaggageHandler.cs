@@ -8,29 +8,26 @@ namespace DesignPatterns.Observer
 {
     public class BaggageHandler : IObservable<BaggageInfo>
     {
-        private List<IObserver<BaggageInfo>> observers;
-        private List<BaggageInfo> flights;
+        private List<IObserver<BaggageInfo>> _observers;
+        private List<BaggageInfo> _flights;
 
         public BaggageHandler()
         {
-            observers = new List<IObserver<BaggageInfo>>();
-            flights = new List<BaggageInfo>();
+            _observers = new List<IObserver<BaggageInfo>>();
+            _flights = new List<BaggageInfo>();
         }
 
         public IDisposable Subscribe(IObserver<BaggageInfo> observer)
         {
-            // Check whether observer is already registered. If not, add it
-            if (!observers.Contains(observer))
+            if (!_observers.Contains(observer))
             {
-                observers.Add(observer);
-                // Provide observer with existing data.
-                foreach (var item in flights)
+                _observers.Add(observer);
+                foreach (var item in _flights)
                     observer.OnNext(item);
             }
-            return new Unsubscriber<BaggageInfo>(observers, observer);
+            return new Unsubscriber<BaggageInfo>(_observers, observer);
         }
 
-        // Called to indicate all baggage is now unloaded.
         public void BaggageStatus(int flightNo)
         {
             BaggageStatus(flightNo, String.Empty, 0);
@@ -40,28 +37,26 @@ namespace DesignPatterns.Observer
         {
             var info = new BaggageInfo(flightNo, from, carousel);
 
-            // Carousel is assigned, so add new info object to list.
-            if (carousel > 0 && !flights.Contains(info))
+            if (carousel > 0 && !_flights.Contains(info))
             {
-                flights.Add(info);
-                foreach (var observer in observers)
+                _flights.Add(info);
+                foreach (var observer in _observers)
                     observer.OnNext(info);
             }
             else if (carousel == 0)
             {
-                // Baggage claim for flight is done
                 var flightsToRemove = new List<BaggageInfo>();
-                foreach (var flight in flights)
+                foreach (var flight in _flights)
                 {
                     if (info.FlightNumber == flight.FlightNumber)
                     {
                         flightsToRemove.Add(flight);
-                        foreach (var observer in observers)
+                        foreach (var observer in _observers)
                             observer.OnNext(info);
                     }
                 }
                 foreach (var flightToRemove in flightsToRemove)
-                    flights.Remove(flightToRemove);
+                    _flights.Remove(flightToRemove);
 
                 flightsToRemove.Clear();
             }
@@ -69,10 +64,10 @@ namespace DesignPatterns.Observer
 
         public void LastBaggageClaimed()
         {
-            foreach (var observer in observers)
+            foreach (var observer in _observers)
                 observer.OnCompleted();
 
-            observers.Clear();
+            _observers.Clear();
         }
     }
 }

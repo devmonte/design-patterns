@@ -1,5 +1,7 @@
-﻿using DesignPatterns.Mediator;
+﻿using System;
+using DesignPatterns.Mediator;
 using DesignPatterns.Observer;
+using DesignPatterns.SimpleObserver;
 
 namespace DesignPatterns
 {
@@ -33,6 +35,16 @@ namespace DesignPatterns
             observer2.Unsubscribe();
             provider.BaggageStatus(400);
             provider.LastBaggageClaimed();
+        }
+
+        public static void ShowSimpleObserver()
+        {
+            var investor = new CrazyCryptoInvestor();
+            var eth = new ETH(new CurrencyInfo { CurrentValue = 2200, ChangeDateTime = DateTime.Now });
+            eth.Attach(investor);
+            var btc = new BTC(new CurrencyInfo { CurrentValue = 5200, ChangeDateTime = DateTime.Now });
+            btc.Attach(investor);
+            eth.CurrentValue = new CurrencyInfo { CurrentValue = 2500, ChangeDateTime = DateTime.Now };
         }
     }
 }

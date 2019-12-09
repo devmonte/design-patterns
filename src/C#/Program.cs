@@ -10,6 +10,10 @@ namespace DesignPatterns
 
             Demonstrator.ShowMediator();
 
+            Console.WriteLine("\n\n Simple Observer!");
+
+            Demonstrator.ShowSimpleObserver();
+
             Console.ReadKey();
         }
     }
