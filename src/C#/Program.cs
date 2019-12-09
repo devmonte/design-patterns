@@ -17,6 +17,9 @@ namespace DesignPatterns
             Console.WriteLine("\n\n Chain!");
             Demonstrator.ShowChain();
 
+            Console.WriteLine("\n\n Decorator!");
+            Demonstrator.ShowDecorator();
+
             Console.ReadKey();
         }
     }

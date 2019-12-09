@@ -1,5 +1,6 @@
 ﻿using System;
 using DesignPatterns.Chain;
+using DesignPatterns.Decorator;
 using DesignPatterns.Mediator;
 using DesignPatterns.Observer;
 using DesignPatterns.SimpleObserver;
@@ -61,6 +62,13 @@ namespace DesignPatterns
 
             var newOrder = new TireOrder{ Name = "Pirelli", TireType = TireType.Racing};
             defaultHandler.ProcessOrder(newOrder);
+        }
+
+        public static void ShowDecorator()
+        {
+            var coffee = new Coffee("Espresso", 8);
+            var milkCoffee = new MilkCoffee(coffee);
+            milkCoffee.SaveCoffee();
         }
     }
 }
