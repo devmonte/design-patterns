@@ -1,4 +1,5 @@
 ﻿using System;
+using DesignPatterns.Chain;
 using DesignPatterns.Mediator;
 using DesignPatterns.Observer;
 using DesignPatterns.SimpleObserver;
@@ -45,6 +46,21 @@ namespace DesignPatterns
             var btc = new BTC(new CurrencyInfo { CurrentValue = 5200, ChangeDateTime = DateTime.Now });
             btc.Attach(investor);
             eth.CurrentValue = new CurrencyInfo { CurrentValue = 2500, ChangeDateTime = DateTime.Now };
+        }
+
+        public static void ShowChain()
+        {
+            var defaultHandler = new DefaultTireOrderHandler();
+            var summerHandler = new SummerTireOrderHandler();
+            var winterHandler = new WinterTireOrderHandler();
+            var racingHandler = new RacingTireOrderHandler();
+
+            defaultHandler.SetNextHandler(summerHandler);
+            summerHandler.SetNextHandler(winterHandler);
+            winterHandler.SetNextHandler(racingHandler);
+
+            var newOrder = new TireOrder{ Name = "Pirelli", TireType = TireType.Racing};
+            defaultHandler.ProcessOrder(newOrder);
         }
     }
 }

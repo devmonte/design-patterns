@@ -14,6 +14,9 @@ namespace DesignPatterns
 
             Demonstrator.ShowSimpleObserver();
 
+            Console.WriteLine("\n\n Chain!");
+            Demonstrator.ShowChain();
+
             Console.ReadKey();
         }
     }
